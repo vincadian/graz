@@ -1,32 +1,55 @@
 {
   "name": "graz",
   "description": "React hooks for Cosmos",
-  "version": "0.0.3",
-  "author": "Griko Nibras <griko@stranvgelove.ventures>",
+  "version": "0.0.22",
+  "author": "Griko Nibras <griko@strangelove.ventures>",
   "repository": "https://github.com/strangelove-ventures/graz.git",
   "homepage": "https://github.com/strangelove-ventures/graz",
   "bugs": "https://github.com/strangelove-ventures/graz/issues",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "module": "./dist/index.mjs",
+      "import": "./dist/index.mjs",
+      "default": "./dist/index.js"
+    },
+    "./chains": {
+      "module": "./chains/index.mjs",
+      "import": "./chains/index.mjs",
+      "default": "./chains/index.js"
+    }
+  },
+  "bin": {
+    "graz": "./cli.mjs"
+  },
   "files": [
-    "dist/**/*.js",
-    "dist/**/*.cjs",
-    "dist/**/*.mjs",
-    "dist/**/*.d.ts"
+    "chains/*.stub",
+    "cli.js",
+    "compiled/**",
+    "dist/*.d.ts",
+    "dist/*.js",
+    "dist/*.mjs"
   ],
   "sideEffects": false,
   "scripts": {
     "build": "tsup",
+    "cli": "node cli.mjs",
     "dev": "tsup --watch"
   },
   "dependencies": {
-    "@cosmjs/cosmwasm-stargate": "^0.28.10",
-    "@cosmjs/proto-signing": "^0.28.10",
-    "@keplr-wallet/cosmos": "^0.10.10",
-    "@keplr-wallet/types": "^0.10.10",
-    "react-query": "^3",
-    "zustand": "4.0.0-rc.1"
+    "@cosmjs/cosmwasm-stargate": "^0",
+    "@cosmjs/proto-signing": "^0",
+    "@cosmjs/stargate": "^0",
+    "@cosmjs/tendermint-rpc": "^0",
+    "@keplr-wallet/cosmos": "^0",
+    "@keplr-wallet/types": "^0",
+    "@tanstack/react-query": "^4",
+    "arg": "^5",
+    "cosmos-directory-client": "0.0.6",
+    "zustand": "^4"
   },
   "devDependencies": {
     "@types/node": "^16",
@@ -35,25 +58,20 @@
     "typescript": "^4"
   },
   "peerDependencies": {
-    "react": ">=16.8"
+    "react": ">=17"
   },
-  "eslintConfig": {
-    "extends": [
-      "@project/eslint-config"
-    ],
-    "ignorePatterns": [
-      "dist/**/*"
-    ],
-    "root": true
-  },
+  "keywords": [
+    "graz",
+    "keplr-wallet",
+    "keplr",
+    "react-cosmos-hooks",
+    "strangelove-ventures",
+    "use-keplr"
+  ],
   "lint-staged": {
-    "*.{json,md}": [
-      "prettier --write"
-    ],
     "**/*.ts": [
-      "yarn workspace graz eslint --fix"
+      "eslint --fix"
     ]
   },
-  "prettier": "@project/prettier-config",
   "license": "MIT"
 }

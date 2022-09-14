@@ -1,0 +1,70 @@
+/**
+ * CSS files with the .module.css suffix will be treated as CSS modules
+ * and scoped locally.
+ */
+
+.heroBanner {
+  padding: 4rem 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  background-color: #02120b;
+  background-image: url("/img/grid.png");
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.heroImage {
+  height: 100px;
+}
+
+.heroDescription {
+  margin: auto;
+  color: rgba(183, 252, 194, 0.7);
+  width: 60%;
+}
+
+.badge {
+  display: flex;
+  gap: 4px;
+  flex-direction: row;
+  justify-content: center;
+}
+
+@media screen and (max-width: 996px) {
+  .heroBanner {
+    padding: 2rem;
+  }
+  .heroDescription {
+    width: 100%;
+    font-size: 1.2rem;
+  }
+  .heroImage {
+    height: 80px;
+  }
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.installContainer {
+  width: 100%;
+  display: "flex";
+  justify-content: "center";
+}
+
+.installContainerCode {
+  background-color: var(--docusaurus-highlighted-code-line-bg);
+  width: 240px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  padding: 8px;
+  border-radius: 8px;
+  font-family: monospace;
+}
